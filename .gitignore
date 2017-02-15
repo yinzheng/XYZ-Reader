@@ -1,4 +1,6 @@
 .idea
 .gradle
 bulid
+bulid/*
 XYZreader/build
+XYZreader/build/*

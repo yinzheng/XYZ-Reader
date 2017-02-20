@@ -48,7 +48,6 @@ public class ArticleDetailFragment extends Fragment implements
     private int mMutedColor = 0xFF333333;
     private ObservableScrollView mScrollView;
     private DrawInsetsFrameLayout mDrawInsetsFrameLayout;
-    private ColorDrawable mStatusBarColorDrawable;
 
     private int mTopInset;
     private View mPhotoContainerView;
@@ -128,8 +127,6 @@ public class ArticleDetailFragment extends Fragment implements
         mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
         mPhotoContainerView = mRootView.findViewById(R.id.photo_container);
 
-        mStatusBarColorDrawable = new ColorDrawable(0);
-
         mRootView.findViewById(R.id.share_fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -156,8 +153,8 @@ public class ArticleDetailFragment extends Fragment implements
                     (int) (Color.green(mMutedColor) * 0.9),
                     (int) (Color.blue(mMutedColor) * 0.9));
         }
-        mStatusBarColorDrawable.setColor(color);
-        mDrawInsetsFrameLayout.setInsetBackground(mStatusBarColorDrawable);
+
+        getActivity().getWindow().setStatusBarColor(color);
     }
 
     static float progress(float v, float min, float max) {
